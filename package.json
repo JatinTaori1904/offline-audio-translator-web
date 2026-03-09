@@ -1,7 +1,15 @@
 {
   "name": "offline-audio-translator-web",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
+  "description": "Offline Audio Translator - Translate speech in real-time without internet. A privacy-first portfolio project for German Data Science Masters.",
+  "author": "Your Name",
+  "license": "MIT",
+  "homepage": "https://offline-audio-translator.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/offline-audio-translator-web.git"
+  },
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
