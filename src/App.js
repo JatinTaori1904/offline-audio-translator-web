@@ -1,6 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
+// Language code mapping for Google Translate
+const langCodeMap = {
+  en: 'en',
+  de: 'de',
+  es: 'es',
+  fr: 'fr'
+};
+
 function App() {
   const [recording, isRecording] = useState(false);
   const [sourceLang, setSourceLang] = useState('en');
@@ -97,15 +105,29 @@ function App() {
     setRecordingTime(0);
   };
 
-  const handleTextTranslate = () => {
+  const handleTextTranslate = async () => {
     if (!textInput.trim()) {
       alert('Please enter some text to translate');
       return;
     }
+    
     setTranscribed(textInput);
-    // Simulate translation with a simple approach
-    const simulatedTranslation = `[${targetLang.toUpperCase()} translation of: "${textInput}"]`;
-    setTranslated(simulatedTranslation);
+    setTranslated('Translating...');
+    
+    try {
+      const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(textInput)}&langpair=${langCodeMap[sourceLang]}|${langCodeMap[targetLang]}`);
+      const data = await response.json();
+      
+      if (data.responseStatus === 200 && data.responseData.translatedText) {
+        setTranslated(data.responseData.translatedText);
+      } else {
+        // Fallback with simple approach
+        setTranslated(`[${targetLang.toUpperCase()} translation: "${textInput}"]`);
+      }
+    } catch (error) {
+      console.error('Translation error:', error);
+      setTranslated(`[${targetLang.toUpperCase()} translation: "${textInput}"]`);
+    }
   };
 
   const formatTime = (seconds) => {
