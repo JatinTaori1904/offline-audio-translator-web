@@ -7,6 +7,7 @@ function App() {
   const [targetLang, setTargetLang] = useState('de');
   const [transcribed, setTranscribed] = useState('');
   const [translated, setTranslated] = useState('');
+  const [textInput, setTextInput] = useState('');
   const [recordingTime, setRecordingTime] = useState(0);
   const mediaRecorderRef = useRef(null);
   const audioContextRef = useRef(null);
@@ -92,7 +93,19 @@ function App() {
   const clearResults = () => {
     setTranscribed('');
     setTranslated('');
+    setTextInput('');
     setRecordingTime(0);
+  };
+
+  const handleTextTranslate = () => {
+    if (!textInput.trim()) {
+      alert('Please enter some text to translate');
+      return;
+    }
+    setTranscribed(textInput);
+    // Simulate translation with a simple approach
+    const simulatedTranslation = `[${targetLang.toUpperCase()} translation of: "${textInput}"]`;
+    setTranslated(simulatedTranslation);
   };
 
   const formatTime = (seconds) => {
@@ -158,8 +171,36 @@ function App() {
           </div>
         </section>
 
+        {/* Text Input Section */}
+        <section className="text-input-section">
+          <div className="text-input-box">
+            <h3>📝 Or Type Text to Translate</h3>
+            <textarea
+              className="text-area"
+              placeholder="Enter text to translate..."
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              disabled={recording}
+              rows="4"
+            />
+            <button
+              className="btn btn-primary"
+              onClick={handleTextTranslate}
+              disabled={recording || !textInput.trim()}
+            >
+              ✨ Translate Text
+            </button>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="section-divider">
+          <span>OR</span>
+        </div>
+
         {/* Recording Controls */}
         <section className="control-section">
+          <h3>🎙️ Record Audio to Transcribe</h3>
           <div className="recording-info">
             {recording && <span className="recording-dot">● Recording</span>}
             {recording && <span className="time-display">{formatTime(recordingTime)}</span>}

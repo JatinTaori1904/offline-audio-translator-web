@@ -5,7 +5,7 @@
 A privacy-first web application for speech transcription and translation. Part of the **OfflineAudioTranslator** portfolio project for German Data Science Master's applications.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-blue?style=flat-square)](https://offline-audio-translator.vercel.app)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=flat-square)](https://github.com/YOUR_USERNAME/offline-audio-translator-web)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=flat-square)](https://github.com/JatinTaori1904/offline-audio-translator-web)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 ## ✨ Features
@@ -215,7 +215,7 @@ Contributions welcome! Feel free to fork and submit pull requests.
 
 ---
 
-**[✨ See Live Demo](https://offline-audio-translator.vercel.app)** | **[📖 Deployment Guide](DEPLOYMENT.md)** | **[💻 GitHub](https://github.com/YOUR_USERNAME/offline-audio-translator-web)**
+**[✨ See Live Demo](https://offline-audio-translator.vercel.app)** | **[📖 Deployment Guide](DEPLOYMENT.md)** | **[💻 GitHub](https://github.com/JatinTaori1904/offline-audio-translator-web)**
 
 *Made with ❤️ for Data Science enthusiasts*
 
